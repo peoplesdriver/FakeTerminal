@@ -1,3 +1,3 @@
-## 0.0.1
+## [0.0.1] - Initial Release
+- Added the FakeTerminal widget.
 
-* TODO: Describe initial release.
