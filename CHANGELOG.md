@@ -6,3 +6,5 @@
 - Updated README file
 ## [0.0.4] - Initial Release update
 - Fixed text direction
+## [0.0.5] - Initial Release update
+- Just a check

@@ -3,12 +3,12 @@ library fake_terminal_widget;
 import 'package:flutter/material.dart';
 
 class FakeTerminal extends StatelessWidget {
-  final List<String> lines; // Lines of text displayed in the terminal
-  final Color backgroundColor; // Terminal background color
-  final Color textColor; // Text color
-  final TextEditingController inputController; // Controller for user input
-  final Function(String)? onCommand; // Callback for commands entered by the user
-  final ScrollController? scrollController; // ScrollController for scrolling
+  final List<String> lines;
+  final Color backgroundColor;
+  final Color textColor;
+  final TextEditingController inputController;
+  final Function(String)? onCommand;
+  final ScrollController? scrollController;
 
   const FakeTerminal({
     Key? key,
@@ -33,7 +33,7 @@ class FakeTerminal extends StatelessWidget {
               itemCount: lines.length,
               itemBuilder: (context, index) {
                 return Align(
-                  alignment: Alignment.centerLeft, // Align text to the left
+                  alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 2.0),
                     child: Text(
@@ -44,7 +44,6 @@ class FakeTerminal extends StatelessWidget {
                         fontSize: 14.0,
                         height: 1.4, // Adjust line height
                       ),
-                      textAlign: TextAlign.left, // Ensure left alignment
                     ),
                   ),
                 );
@@ -53,7 +52,7 @@ class FakeTerminal extends StatelessWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           color: backgroundColor,
           child: Row(
             children: [
