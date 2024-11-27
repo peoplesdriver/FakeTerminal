@@ -1,5 +1,3 @@
-library fake_terminal_widget;
-
 import 'package:flutter/material.dart';
 
 class FakeTerminal extends StatelessWidget {
@@ -28,16 +26,15 @@ class FakeTerminal extends StatelessWidget {
         Expanded(
           child: Container(
             color: backgroundColor,
-            child: ListView.builder(
+            child: ListView(
               controller: scrollController,
-              itemCount: lines.length,
-              itemBuilder: (context, index) {
+              children: lines.map((line) {
                 return Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 2.0),
                     child: Text(
-                      lines[index],
+                      line,
                       style: TextStyle(
                         color: textColor,
                         fontFamily: 'Courier',
@@ -47,7 +44,7 @@ class FakeTerminal extends StatelessWidget {
                     ),
                   ),
                 );
-              },
+              }).toList(),
             ),
           ),
         ),

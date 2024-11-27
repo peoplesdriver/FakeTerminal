@@ -8,3 +8,5 @@
 - Fixed text direction
 ## [0.0.5] - Initial Release update
 - Just a check
+## [0.0.5] - Initial Release update
+- fixed duplicate lines
