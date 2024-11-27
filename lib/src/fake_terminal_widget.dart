@@ -29,12 +29,24 @@ class FakeTerminal extends StatelessWidget {
           child: Container(
             color: backgroundColor,
             child: ListView.builder(
-              controller: scrollController, // Attach the ScrollController
+              controller: scrollController,
               itemCount: lines.length,
               itemBuilder: (context, index) {
-                return Text(
-                  lines[index],
-                  style: TextStyle(color: textColor, fontFamily: 'Courier'),
+                return Align(
+                  alignment: Alignment.centerLeft, // Align text to the left
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2.0),
+                    child: Text(
+                      lines[index],
+                      style: TextStyle(
+                        color: textColor,
+                        fontFamily: 'Courier',
+                        fontSize: 14.0,
+                        height: 1.4, // Adjust line height
+                      ),
+                      textAlign: TextAlign.left, // Ensure left alignment
+                    ),
+                  ),
                 );
               },
             ),
