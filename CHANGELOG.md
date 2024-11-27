@@ -8,5 +8,7 @@
 - Fixed text direction
 ## [0.0.5] - Initial Release update
 - Just a check
-## [0.0.5] - Initial Release update
+## [0.0.6] - Initial Release update
 - fixed duplicate lines
+## [0.0.7] - Initial Release update
+- introduced List<ValueNotifier<String>> lines;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FakeTerminal extends StatelessWidget {
-  final List<String> lines;
+  final List<ValueNotifier<String>> lines;
   final Color backgroundColor;
   final Color textColor;
   final TextEditingController inputController;
@@ -26,25 +26,31 @@ class FakeTerminal extends StatelessWidget {
         Expanded(
           child: Container(
             color: backgroundColor,
-            child: ListView(
+            child: ListView.builder(
               controller: scrollController,
-              children: lines.map((line) {
-                return Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 2.0),
-                    child: Text(
-                      line,
-                      style: TextStyle(
-                        color: textColor,
-                        fontFamily: 'Courier',
-                        fontSize: 14.0,
-                        height: 1.4, // Adjust line height
+              itemCount: lines.length,
+              itemBuilder: (context, index) {
+                return ValueListenableBuilder<String>(
+                  valueListenable: lines[index],
+                  builder: (context, line, child) {
+                    return Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2.0),
+                        child: Text(
+                          line,
+                          style: TextStyle(
+                            color: textColor,
+                            fontFamily: 'Courier',
+                            fontSize: 14.0,
+                            height: 1.4, // Adjust line height
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 );
-              }).toList(),
+              },
             ),
           ),
         ),
