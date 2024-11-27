@@ -8,6 +8,7 @@ class FakeTerminal extends StatelessWidget {
   final Color textColor; // Text color
   final TextEditingController inputController; // Controller for user input
   final Function(String)? onCommand; // Callback for commands entered by the user
+  final ScrollController? scrollController; // ScrollController for scrolling
 
   const FakeTerminal({
     Key? key,
@@ -16,6 +17,7 @@ class FakeTerminal extends StatelessWidget {
     this.textColor = Colors.green,
     required this.inputController,
     this.onCommand,
+    this.scrollController,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class FakeTerminal extends StatelessWidget {
           child: Container(
             color: backgroundColor,
             child: ListView.builder(
+              controller: scrollController, // Attach the ScrollController
               itemCount: lines.length,
               itemBuilder: (context, index) {
                 return Text(
