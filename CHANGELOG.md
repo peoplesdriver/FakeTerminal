@@ -12,3 +12,5 @@
 - fixed duplicate lines
 ## [0.0.7] - Initial Release update
 - introduced List<ValueNotifier<String>> lines;
+## [0.0.8] - Initial Release update
+- added loading animation
