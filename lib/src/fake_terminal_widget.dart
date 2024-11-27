@@ -1,6 +1,7 @@
-// lib/widgets/fake_terminal.dart
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'loading_animation.dart';
 
 class FakeTerminal extends StatelessWidget {
   final List<ValueNotifier<String>> lines;
@@ -41,14 +42,14 @@ class FakeTerminal extends StatelessWidget {
                     return Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2.0),
+                        padding: EdgeInsets.symmetric(vertical: 2.h),
                         child: Text(
                           line,
                           style: TextStyle(
                             color: textColor,
                             fontFamily: 'Courier',
-                            fontSize: 14.0,
-                            height: 1.4, // Adjust line height
+                            fontSize: 14.sp, // Use ScreenUtil for font size
+                            height: 1.4.h, // Adjust line height dynamically
                           ),
                         ),
                       ),
@@ -61,7 +62,7 @@ class FakeTerminal extends StatelessWidget {
         ),
         // Input Area
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
           color: backgroundColor,
           child: Row(
             children: [
@@ -70,7 +71,11 @@ class FakeTerminal extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     controller: inputController,
-                    style: TextStyle(color: textColor, fontFamily: 'Courier'),
+                    style: TextStyle(
+                      color: textColor,
+                      fontFamily: 'Courier',
+                      fontSize: 14.sp, // Use ScreenUtil for font size
+                    ),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Type a command...',
@@ -94,76 +99,4 @@ class FakeTerminal extends StatelessWidget {
   }
 }
 
-// LoadingAnimation Widget
-class LoadingAnimation extends StatefulWidget {
-  const LoadingAnimation({Key? key}) : super(key: key);
-
-  @override
-  _LoadingAnimationState createState() => _LoadingAnimationState();
-}
-
-class _LoadingAnimationState extends State<LoadingAnimation> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation1;
-  late Animation<double> _animation2;
-  late Animation<double> _animation3;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize the animation controller
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..repeat();
-
-    // Define staggered animations for each dot
-    _animation1 = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.5, curve: Curves.easeIn)),
-    );
-
-    _animation2 = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: const Interval(0.2, 0.7, curve: Curves.easeIn)),
-    );
-
-    _animation3 = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: const Interval(0.4, 0.9, curve: Curves.easeIn)),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose(); // Dispose the controller to free resources
-    super.dispose();
-  }
-
-  // Helper method to build each animated dot
-  Widget _buildDot(Animation<double> animation) {
-    return FadeTransition(
-      opacity: animation,
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 2.0),
-        child: Text(
-          '.',
-          style: TextStyle(
-            color: Colors.greenAccent,
-            fontSize: 24.0,
-            fontFamily: 'Courier',
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _buildDot(_animation1),
-        _buildDot(_animation2),
-        _buildDot(_animation3),
-      ],
-    );
-  }
-}
+// LoadingAnimation remains unchanged

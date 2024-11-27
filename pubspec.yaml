@@ -1,6 +1,6 @@
 name: fake_terminal
 description: A customizable fake terminal widget for Flutter applications.
-version: 0.0.8
+version: 0.0.9
 homepage: https://github.com/peoplesdriver/fake_terminal
 repository: https://github.com/peoplesdriver/fake_terminal
 
@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:

@@ -20,7 +20,7 @@ Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  fake_terminal: ^0.0.8
+  fake_terminal: ^0.0.9
 ```
 
 Run the following command to fetch the package:
