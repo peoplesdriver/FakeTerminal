@@ -1,6 +1,6 @@
 name: fake_terminal
 description: A customizable fake terminal widget for Flutter applications.
-version: 0.0.9
+version: 0.1.0
 homepage: https://github.com/peoplesdriver/fake_terminal
 repository: https://github.com/peoplesdriver/fake_terminal
 
@@ -19,3 +19,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: DejaVuSansMono
+      fonts:
+        - asset: assets/fonts/DejaVuSansMono.ttf

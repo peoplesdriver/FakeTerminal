@@ -10,7 +10,7 @@ class FakeTerminal extends StatelessWidget {
   final TextEditingController inputController;
   final Function(String)? onCommand;
   final ScrollController? scrollController;
-  final bool isProcessing; // New parameter
+  final bool isProcessing;
 
   const FakeTerminal({
     Key? key,
@@ -47,7 +47,7 @@ class FakeTerminal extends StatelessWidget {
                           line,
                           style: TextStyle(
                             color: textColor,
-                            fontFamily: 'Courier',
+                            fontFamily: 'DejaVuSansMono',
                             fontSize: 14.sp, // Use ScreenUtil for font size
                             height: 1.4.h, // Adjust line height dynamically
                           ),
@@ -99,4 +99,3 @@ class FakeTerminal extends StatelessWidget {
   }
 }
 
-// LoadingAnimation remains unchanged

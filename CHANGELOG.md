@@ -16,3 +16,5 @@
 - added loading animation
 ## [0.0.9] - Initial Release update
 - added ScreenUtil
+## [0.1.0] - Second Release
+- changed text font
